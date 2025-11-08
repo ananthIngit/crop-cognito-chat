@@ -144,4 +144,4 @@ if __name__ == '__main__':
     print(f"   - POST /api/predict - Predict disease from image")
     print(f"   - GET  /api/classes - Get available classes")
     app.run(host='0.0.0.0', port=5000, debug=True)
-
+#1
