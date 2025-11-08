@@ -8,7 +8,7 @@ from models.hybrid_model import HybridPlantNet
 # --- Configuration ---
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 # IMPORTANT: Adjust this path if your class folders are nested (e.g., inside 'Color Images')
-DATA_DIR = "data/PlantVillage" 
+DATA_DIR = "data/PlantVillage/PlantVillage"  # Updated to match your dataset structure 
 NUM_EPOCHS = 10
 BATCH_SIZE = 16
 LEARNING_RATE = 1e-4

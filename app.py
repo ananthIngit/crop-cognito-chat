@@ -18,7 +18,7 @@ CORS(app)  # Enable CORS for React frontend
 
 # --- Configuration ---
 MODEL_PATH = "hybrid_model.pth"
-DATA_DIR = "data/PlantVillage"
+DATA_DIR = "data/PlantVillage/PlantVillage"  # Updated to match your dataset structure
 CLASSES_FALLBACK = ["Healthy", "Early Disease", "Disease"]  # Fallback classes
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 # ---------------------
