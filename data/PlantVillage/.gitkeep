@@ -1,0 +1,9 @@
+# Place your PlantVillage dataset here
+# Each class should be in its own folder
+# Example structure:
+# PlantVillage/
+#   ├── Tomato___Bacterial_spot/
+#   ├── Tomato___Early_blight/
+#   ├── Tomato___healthy/
+#   └── ...
+
