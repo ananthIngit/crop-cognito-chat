@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { NavLink } from "@/components/NavLink";
 import { useToast } from "@/hooks/use-toast";
+import { ParallaxSection } from "@/components/ParallaxSection";
 
 interface Message {
   role: "user" | "assistant";
@@ -83,16 +84,19 @@ const Chat = () => {
       </nav>
 
       <main className="flex-1 container mx-auto px-4 py-8 flex flex-col max-w-4xl">
-        <div className="text-center mb-6">
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-            AI Farming Assistant
-          </h1>
-          <p className="text-muted-foreground">
-            Ask me anything about agriculture, plant care, or disease management
-          </p>
-        </div>
+        <ParallaxSection speed={0.2}>
+          <div className="text-center mb-6">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+              AI Farming Assistant
+            </h1>
+            <p className="text-muted-foreground">
+              Ask me anything about agriculture, plant care, or disease management
+            </p>
+          </div>
+        </ParallaxSection>
 
-        <Card className="flex-1 flex flex-col shadow-card-3d hover:shadow-glow transition-shadow duration-500 overflow-hidden" style={{ perspective: '1000px' }}>
+        <ParallaxSection speed={0.3}>
+          <Card className="flex-1 flex flex-col shadow-card-3d hover:shadow-glow transition-shadow duration-500 overflow-hidden" style={{ perspective: '1000px' }}>
           <div className="flex-1 overflow-y-auto p-6 space-y-4">
             {messages.map((message, index) => (
               <div
@@ -163,6 +167,7 @@ const Chat = () => {
             </div>
           </div>
         </Card>
+        </ParallaxSection>
       </main>
     </div>
   );
