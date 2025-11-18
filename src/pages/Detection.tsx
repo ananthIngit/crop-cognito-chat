@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { NavLink } from "@/components/NavLink";
+import { ParallaxSection } from "@/components/ParallaxSection";
 
 const Detection = () => {
   const [isDetecting, setIsDetecting] = useState(false);
@@ -75,16 +76,19 @@ const Detection = () => {
 
       <main className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto space-y-8">
-          <div className="text-center space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-              Plant Disease Detection
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Use your camera to instantly identify plant diseases and get AI-powered treatment recommendations
-            </p>
-          </div>
+          <ParallaxSection speed={0.2}>
+            <div className="text-center space-y-4">
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+                Plant Disease Detection
+              </h1>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Use your camera to instantly identify plant diseases and get AI-powered treatment recommendations
+              </p>
+            </div>
+          </ParallaxSection>
 
-          <Card className="p-8 shadow-card-3d hover:shadow-glow transition-all duration-500 transform hover:scale-[1.02]">
+          <ParallaxSection speed={0.35}>
+            <Card className="p-8 shadow-card-3d hover:shadow-glow transition-all duration-500 transform hover:scale-[1.02]">
             <div className="space-y-6">
               <div className="aspect-video bg-muted rounded-lg overflow-hidden relative shadow-card-3d" style={{ perspective: '1000px' }}>
                 {!isDetecting && !hasDetection && (
@@ -169,8 +173,10 @@ const Detection = () => {
               </div>
             </div>
           </Card>
+          </ParallaxSection>
 
-          <Card className="p-6 bg-muted/50 border-accent/20 shadow-card-3d hover:shadow-glow transition-all duration-500 transform hover:scale-[1.02]">
+          <ParallaxSection speed={0.25}>
+            <Card className="p-6 bg-muted/50 border-accent/20 shadow-card-3d hover:shadow-glow transition-all duration-500 transform hover:scale-[1.02]">
             <h3 className="text-lg font-semibold text-foreground mb-3">How it works:</h3>
             <ol className="space-y-2 text-muted-foreground">
               <li className="transform hover:translate-x-2 transition-transform duration-300">1. Click "Start Camera" to activate your device's camera</li>
@@ -179,6 +185,7 @@ const Detection = () => {
               <li className="transform hover:translate-x-2 transition-transform duration-300">4. Get instant results and AI-powered treatment advice</li>
             </ol>
           </Card>
+          </ParallaxSection>
         </div>
       </main>
     </div>
