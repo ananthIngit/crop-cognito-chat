@@ -92,23 +92,23 @@ const Chat = () => {
           </p>
         </div>
 
-        <Card className="flex-1 flex flex-col shadow-card overflow-hidden">
+        <Card className="flex-1 flex flex-col shadow-card-3d hover:shadow-glow transition-shadow duration-500 overflow-hidden" style={{ perspective: '1000px' }}>
           <div className="flex-1 overflow-y-auto p-6 space-y-4">
             {messages.map((message, index) => (
               <div
                 key={index}
                 className={`flex gap-3 ${
                   message.role === "user" ? "justify-end" : "justify-start"
-                }`}
+                } animate-fade-in`}
               >
                 {message.role === "assistant" && (
-                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 shadow-card hover:shadow-card-hover animate-float-slow transition-all">
                     <Bot className="w-5 h-5 text-primary-foreground" />
                   </div>
                 )}
                 
                 <div
-                  className={`max-w-[80%] rounded-lg p-4 ${
+                  className={`max-w-[80%] rounded-lg p-4 shadow-card hover:shadow-card-hover transform hover:scale-[1.02] transition-all duration-300 ${
                     message.role === "user"
                       ? "bg-primary text-primary-foreground"
                       : "bg-muted text-foreground"
@@ -118,7 +118,7 @@ const Chat = () => {
                 </div>
 
                 {message.role === "user" && (
-                  <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 shadow-card hover:shadow-card-hover animate-float-slow transition-all">
                     <User className="w-5 h-5 text-secondary-foreground" />
                   </div>
                 )}
@@ -143,20 +143,20 @@ const Chat = () => {
             <div ref={messagesEndRef} />
           </div>
 
-          <div className="border-t border-border p-4">
+          <div className="border-t border-border p-4 bg-card shadow-card-3d">
             <div className="flex gap-2">
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Ask about plant diseases, farming tips, or agriculture..."
-                className="flex-1"
+                className="flex-1 shadow-card focus:shadow-card-hover transition-shadow"
                 disabled={isLoading}
               />
               <Button
                 onClick={sendMessage}
                 disabled={isLoading || !input.trim()}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-card-3d hover:shadow-glow transform hover:scale-105 hover:-translate-y-1 transition-all duration-300"
               >
                 <Send className="w-5 h-5" />
               </Button>

@@ -84,12 +84,14 @@ const Detection = () => {
             </p>
           </div>
 
-          <Card className="p-8 shadow-card hover:shadow-card-hover transition-shadow">
+          <Card className="p-8 shadow-card-3d hover:shadow-glow transition-all duration-500 transform hover:scale-[1.02]">
             <div className="space-y-6">
-              <div className="aspect-video bg-muted rounded-lg overflow-hidden relative">
+              <div className="aspect-video bg-muted rounded-lg overflow-hidden relative shadow-card-3d" style={{ perspective: '1000px' }}>
                 {!isDetecting && !hasDetection && (
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-muted-foreground">
-                    <Camera className="w-16 h-16 mb-4" />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-muted-foreground bg-glow-gradient animate-glow">
+                    <div className="animate-float">
+                      <Camera className="w-16 h-16 mb-4 drop-shadow-glow" />
+                    </div>
                     <p className="text-lg">Camera preview will appear here</p>
                   </div>
                 )}
@@ -124,7 +126,7 @@ const Detection = () => {
                   <Button 
                     onClick={startCamera}
                     size="lg"
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-card-3d hover:shadow-glow transform hover:scale-105 hover:-translate-y-1 transition-all duration-300"
                   >
                     <Camera className="w-5 h-5 mr-2" />
                     Start Camera
@@ -136,7 +138,7 @@ const Detection = () => {
                     <Button 
                       onClick={captureAndDetect}
                       size="lg"
-                      className="bg-accent hover:bg-accent/90 text-accent-foreground"
+                      className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-card-3d hover:shadow-glow transform hover:scale-105 hover:-translate-y-1 transition-all duration-300"
                     >
                       Capture & Detect
                     </Button>
@@ -144,6 +146,7 @@ const Detection = () => {
                       onClick={stopCamera}
                       size="lg"
                       variant="outline"
+                      className="shadow-card hover:shadow-card-hover transform hover:scale-105 transition-all duration-300"
                     >
                       Stop Camera
                     </Button>
@@ -158,6 +161,7 @@ const Detection = () => {
                     }}
                     size="lg"
                     variant="outline"
+                    className="shadow-card hover:shadow-card-hover transform hover:scale-105 transition-all duration-300"
                   >
                     Scan Another Plant
                   </Button>
@@ -166,13 +170,13 @@ const Detection = () => {
             </div>
           </Card>
 
-          <Card className="p-6 bg-muted/50 border-accent/20">
+          <Card className="p-6 bg-muted/50 border-accent/20 shadow-card-3d hover:shadow-glow transition-all duration-500 transform hover:scale-[1.02]">
             <h3 className="text-lg font-semibold text-foreground mb-3">How it works:</h3>
             <ol className="space-y-2 text-muted-foreground">
-              <li>1. Click "Start Camera" to activate your device's camera</li>
-              <li>2. Point the camera at the affected plant leaves</li>
-              <li>3. Click "Capture & Detect" to analyze the image</li>
-              <li>4. Get instant results and AI-powered treatment advice</li>
+              <li className="transform hover:translate-x-2 transition-transform duration-300">1. Click "Start Camera" to activate your device's camera</li>
+              <li className="transform hover:translate-x-2 transition-transform duration-300">2. Point the camera at the affected plant leaves</li>
+              <li className="transform hover:translate-x-2 transition-transform duration-300">3. Click "Capture & Detect" to analyze the image</li>
+              <li className="transform hover:translate-x-2 transition-transform duration-300">4. Get instant results and AI-powered treatment advice</li>
             </ol>
           </Card>
         </div>
