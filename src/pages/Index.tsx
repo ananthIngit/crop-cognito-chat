@@ -31,11 +31,11 @@ const Index = () => {
         <ParticleBackground />
         <div className="absolute inset-0 bg-glow-gradient animate-glow opacity-30" />
         <div className="container mx-auto px-4 py-24 md:py-32 relative z-10">
-          <ParallaxSection speed={0.3}>
+          <ParallaxSection speed={0.08}>
             <div className="max-w-3xl mx-auto text-center space-y-6">
-              <div className="inline-block mb-4 animate-float">
+              <div className="inline-block mb-4">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-primary-foreground/20 blur-xl rounded-full animate-glow" />
+                  <div className="absolute inset-0 bg-primary-foreground/20 blur-xl rounded-full" />
                   <Leaf className="w-16 h-16 mx-auto relative z-10 drop-shadow-glow" />
                 </div>
               </div>
@@ -68,7 +68,7 @@ const Index = () => {
       {/* Features Section */}
       <section className="py-20 bg-gradient-to-b from-background to-muted relative">
         <div className="container mx-auto px-4">
-          <ParallaxSection speed={0.2}>
+          <ParallaxSection speed={0.05}>
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-foreground mb-4">
                 Powerful Features for Modern Farming
@@ -79,7 +79,7 @@ const Index = () => {
             </div>
           </ParallaxSection>
 
-          <ParallaxSection speed={0.4}>
+          <ParallaxSection speed={0.08}>
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto" style={{ perspective: '1500px' }}>
             <Card className="p-8 text-center shadow-card-3d hover:shadow-glow transition-all duration-500 border-2 hover:border-primary/50 transform hover:scale-105 hover:-translate-y-2 hover:rotate-y-3 group">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:animate-float shadow-card group-hover:shadow-glow transition-all duration-300">
@@ -156,7 +156,7 @@ const Index = () => {
         <ParticleBackground />
         <div className="absolute inset-0 bg-glow-gradient opacity-20 animate-glow" />
         <div className="container mx-auto px-4 text-center relative z-10">
-          <ParallaxSection speed={0.15}>
+          <ParallaxSection speed={0.05}>
             <h2 className="text-4xl font-bold mb-6 transform hover:scale-105 transition-transform duration-300">
               Ready to Protect Your Crops?
             </h2>
@@ -164,7 +164,7 @@ const Index = () => {
               Start detecting plant diseases and get expert AI assistance today
             </p>
             <NavLink to="/detection">
-              <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-card-3d hover:shadow-glow transform hover:scale-110 hover:-translate-y-2 transition-all duration-300 animate-float-slow">
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-card-3d hover:shadow-glow transform hover:scale-110 hover:-translate-y-2 transition-all duration-300">
                 <Camera className="w-5 h-5 mr-2" />
                 Start Free Detection
               </Button>
