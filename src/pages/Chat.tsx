@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { NavLink } from "@/components/NavLink";
 import { useToast } from "@/hooks/use-toast";
 import { ParallaxSection } from "@/components/ParallaxSection";
+import { supabase } from "@/integrations/supabase/client";
 
 interface Message {
   role: "user" | "assistant";
@@ -40,19 +41,33 @@ const Chat = () => {
     setMessages(prev => [...prev, { role: "user", content: userMessage }]);
     setIsLoading(true);
 
-    // Simulate AI response - Replace with actual AI integration
-    setTimeout(() => {
-      const responses = [
-        "Based on your question, I recommend checking the soil pH levels and ensuring proper drainage. Early blight is often caused by excessive moisture and poor air circulation.",
-        "For organic pest control, consider introducing beneficial insects like ladybugs or using neem oil spray. These methods are safe and effective.",
-        "The yellowing of leaves could indicate nitrogen deficiency. I suggest applying a balanced fertilizer and monitoring the plant's response over the next week.",
-        "To prevent disease spread, remove affected leaves immediately and ensure plants have adequate spacing for air circulation. Avoid overhead watering when possible."
-      ];
-      
-      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-      setMessages(prev => [...prev, { role: "assistant", content: randomResponse }]);
+    try {
+      const { data, error } = await supabase.functions.invoke('chat', {
+        body: { 
+          messages: [...messages, { role: "user", content: userMessage }].map(msg => ({
+            role: msg.role === "assistant" ? "assistant" : "user",
+            content: msg.content
+          }))
+        }
+      });
+
+      if (error) throw error;
+
+      if (data?.content) {
+        setMessages(prev => [...prev, { role: "assistant", content: data.content }]);
+      } else {
+        throw new Error("No response from AI");
+      }
+    } catch (error) {
+      console.error("Chat error:", error);
+      toast({
+        title: "Error",
+        description: "Failed to get AI response. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
