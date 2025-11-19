@@ -84,7 +84,7 @@ const Chat = () => {
       </nav>
 
       <main className="flex-1 container mx-auto px-4 py-8 flex flex-col max-w-4xl">
-        <ParallaxSection speed={0.2}>
+        <ParallaxSection speed={0.03}>
           <div className="text-center mb-6">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
               AI Farming Assistant
@@ -95,7 +95,7 @@ const Chat = () => {
           </div>
         </ParallaxSection>
 
-        <ParallaxSection speed={0.3}>
+        <ParallaxSection speed={0.05}>
           <Card className="flex-1 flex flex-col shadow-card-3d hover:shadow-glow transition-shadow duration-500 overflow-hidden" style={{ perspective: '1000px' }}>
           <div className="flex-1 overflow-y-auto p-6 space-y-4">
             {messages.map((message, index) => (
